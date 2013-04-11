@@ -1,0 +1,30 @@
+[user]
+  name = Owen Wang
+  email = wangfowen@gmail.com
+[github]
+  user = wangfowen
+[diff]
+  tool = diffmerge
+  renames = copies
+[difftool "diffmerge"]
+  cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[merge]
+  tool = diffmerge
+[mergetool "diffmerge"]
+  cmd = diffmerge --merge --result=\"$MERGED\"  \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+  trustexitcode = false
+[push]
+  default = current
+[color]
+  ui = true
+[alias]
+  l = log --decorate --graph
+  o = checkout
+  c = commit
+  s = status
+  a = add
+  b = branch
+  d = diff
+  rm-a = "!git ls-files -z --deleted | xargs -0 git rm"
+[help]
+  autocorrect = 1
