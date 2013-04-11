@@ -8,6 +8,8 @@
   renames = copies
 [difftool "diffmerge"]
   cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[branch]
+  autosetuprebase = always
 [merge]
   tool = diffmerge
 [mergetool "diffmerge"]
