@@ -5,6 +5,8 @@ function parse_git_branch {
     git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
+set -o vi
+
 export PATH=/usr/local/bin:~/bin:/Users/Owen/scala/bin:$PATH:/opt/node/bin:/Users/Owen/workspace/libs/Play20
 export PS1='\[\e[7m\]\u@\h \w$(parse_git_branch) $\[\e[0m\] '
 export EDITOR=/usr/bin/vim
@@ -29,8 +31,22 @@ alias ga='git rm-a && git a .'
 alias gb='git b -r'
 alias gd='git d'
 alias g='git'
-alias gpush='git push origin'
-alias gpull='git pull origin'
+alias gpush='git push'
+alias gpull='git pull'
+alias gstash='git stash'
+alias gpop='git stash pop'
+alias m1='alias g1="cd `pwd`"'
+alias m2='alias g2="cd `pwd`"'
+alias m3='alias g3="cd `pwd`"'
+alias m4='alias g4="cd `pwd`"'
+alias m5='alias g5="cd `pwd`"'
+alias m6='alias g6="cd `pwd`"'
+alias m7='alias g7="cd `pwd`"'
+alias m8='alias g8="cd `pwd`"'
+alias m9='alias g9="cd `pwd`"'
+alias mdump='alias|grep -e "alias g[0-9]"|grep -v "alias m" > ~/.bookmarks'
+alias mlist='alias | grep -e "alias g[0-9]"|grep -v "alias m"|sed "s/alias //"'
+source ~/.bookmarks
 
 alias ec2='ssh -i ~/.ec2/owen.pem ec2-user@ec2-54-234-179-108.compute-1.amazonaws.com'
 alias ece='ssh f57wang@ecelinux.uwaterloo.ca'
