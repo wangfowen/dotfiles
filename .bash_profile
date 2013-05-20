@@ -7,7 +7,7 @@ function parse_git_branch {
 
 set -o vi
 
-export PATH=/usr/local/bin:~/bin:/Users/Owen/scala/bin:$PATH:/opt/node/bin:/Users/Owen/workspace/libs/Play20
+export PATH=$PATH:$EC2_HOME/bin:/usr/local/sbin:/usr/local/bin:~/bin:/Users/Owen/scala/bin:/opt/node/bin
 export PS1='\[\e[7m\]\u@\h \w$(parse_git_branch) $\[\e[0m\] '
 export EDITOR=/usr/bin/vim
 
@@ -35,6 +35,7 @@ alias gpush='git push'
 alias gpull='git pull'
 alias gstash='git stash'
 alias gpop='git stash pop'
+
 alias m1='alias g1="cd `pwd`"'
 alias m2='alias g2="cd `pwd`"'
 alias m3='alias g3="cd `pwd`"'
@@ -49,8 +50,8 @@ alias mlist='alias | grep -e "alias g[0-9]"|grep -v "alias m"|sed "s/alias //"'
 source ~/.bookmarks
 
 alias ec2='ssh -i ~/.ec2/owen.pem ec2-user@ec2-54-234-179-108.compute-1.amazonaws.com'
-alias ece='ssh f57wang@ecelinux.uwaterloo.ca'
-alias loo='ssh f57wang@sftp.eng.uwaterloo.ca'
+alias ece='ssh f57wang@ecelinux.uwaterloo.ca -X'
+alias loo='ssh f57wang@sftp.eng.uwaterloo.ca -X'
 alias tmux='TERM=xterm-256color tmux'
 
 #=====AUTO-COMPLETION FOR ALIASES=====
@@ -130,7 +131,6 @@ export MANPATH=/usr/share/man:/usr/local/man:$MANPATH
 
 
 export EC2_HOME=~/.ec2
-export PATH=$PATH:$EC2_HOME/bin:/usr/local/sbin
 export EC2_PRIVATE_KEY=`ls $EC2_HOME/pk-*.pem`
 export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
