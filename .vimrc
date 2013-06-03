@@ -96,6 +96,31 @@ set list
 
 set wildmenu
 
+set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BUNDLES
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
