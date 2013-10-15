@@ -7,8 +7,8 @@ function parse_git_branch {
 
 set -o vi
 
-export PATH=$PATH:$EC2_HOME/bin:/usr/local/sbin:/usr/local/bin:~/bin:/Users/Owen/scala/bin:/opt/node/bin
-export PS1='\[\e[7m\]\u@\h \w$(parse_git_branch) $\[\e[0m\] '
+export PATH=/usr/local/bin:$PATH:$EC2_HOME/bin:/usr/local/sbin:~/bin:/Users/Owen/scala/bin:/opt/node/bin
+export PS1='\[\e[33m\]\w\e[32m\]$(parse_git_branch) $\[\e[0m\] '
 export EDITOR=/usr/bin/vim
 
 export CC=/usr/bin/gcc-4.2

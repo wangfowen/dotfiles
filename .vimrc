@@ -134,6 +134,7 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 Bundle 'briancollins/vim-jst'
+Bundle 'tpope/vim-markdown'
 
 Bundle 'kien/ctrlp.vim.git'
 nnoremap <leader>p :CtrlP<CR>
